@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "183f622b-93ca-40ba-8a81-f0a9fcbe0c1e",
+		"name": "books-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all books paginated",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_ENDPOINT}}?page=1",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get book by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_ENDPOINT}}/1",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search book by given criteria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_ENDPOINT}}/search/{{SEARCH_BY_PUBLISHED_YEAR}}/200/?page=1",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"search",
+						"{{SEARCH_BY_PUBLISHED_YEAR}}",
+						"200",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store a book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Cracking the Coding Interview: 189 Programming Questions and Solutions Tu",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "Available at a lower price from other sellers that may not offer free Prime shipping.\n\nI am not a recruiter. I am a software engineer. And as such, I know what it's like to be asked to whip up brilliant algorithms on the spot and then write flawless code on a whiteboard. I've been through this as a candidate and as an interviewer.\n\nCracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best. I've coached and interviewed hundreds of software engineers. The result is this book.\n\nLearn how to uncover the hints and hidden details in a question, discover how to break down a problem into manageable chunks, develop techniques to unstick yourself when stuck, learn (or re-learn) core computer science concepts, and practice on 189 interview questions and solutions.",
+							"type": "default"
+						},
+						{
+							"key": "url",
+							"value": "https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/",
+							"type": "default"
+						},
+						{
+							"key": "published_year",
+							"value": "2008",
+							"type": "default"
+						},
+						{
+							"key": "available",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "authors[0]",
+							"value": "Gayle Laakmann McDowell",
+							"type": "default"
+						},
+						{
+							"key": "co_authors[0]",
+							"value": "co author example",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "cover_image_file",
+							"type": "file",
+							"src": "/home/dicarlomtz/Desktop/41oYsXjLvZL._AC_SY580_.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}",
+					"host": [
+						"{{API_ENDPOINT}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update a book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Cracking the Coding Interview: 189 Programming Questions and Solutions",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "Available at a lower price from other sellers that may not offer free Prime shipping.\n\nI am not a recruiter. I am a software engineer. And as such, I know what it's like to be asked to whip up brilliant algorithms on the spot and then write flawless code on a whiteboard. I've been through this as a candidate and as an interviewer.\n\nCracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best. I've coached and interviewed hundreds of software engineers. The result is this book.\n\nLearn how to uncover the hints and hidden details in a question, discover how to break down a problem into manageable chunks, develop techniques to unstick yourself when stuck, learn (or re-learn) core computer science concepts, and practice on 189 interview questions and solutions.",
+							"type": "default"
+						},
+						{
+							"key": "url",
+							"value": "https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/",
+							"type": "default"
+						},
+						{
+							"key": "published_year",
+							"value": "2008",
+							"type": "default"
+						},
+						{
+							"key": "available",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "authors[0]",
+							"value": "Gayle Laakmann McDowell",
+							"type": "default"
+						},
+						{
+							"key": "co_authors[0]",
+							"value": "co author example",
+							"type": "default"
+						},
+						{
+							"key": "cover_image_file",
+							"type": "file",
+							"src": "/home/dicarlomtz/Desktop/41oYsXjLvZL._AC_SY580_.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{API_ENDPOINT}}/1?_method=PUT",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"1"
+					],
+					"query": [
+						{
+							"key": "_method",
+							"value": "PUT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{API_ENDPOINT}}/2",
+					"host": [
+						"{{API_ENDPOINT}}"
+					],
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
