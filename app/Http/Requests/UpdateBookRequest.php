@@ -31,7 +31,7 @@ class UpdateBookRequest extends FormRequest
             'available' => ['boolean', 'nullable'],
             'authors' => ['array', 'nullable'],
             'co_authors' => ['array', 'nullable'],
-            'cover_image' => ['url', 'image', 'nullable']
+            'cover_image' => ['url', 'nullable']
         ];
     }
 }

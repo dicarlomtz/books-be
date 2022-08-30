@@ -29,29 +29,4 @@ class Book extends Model
         'authors' => 'array',
         'co_authors' => 'array'
     ];
-
-    public static function saveCoverImage(Request $request)
-    {
-        $coverImage = $request->file('cover_image_file');
-
-        $coverImageName = Str::uuid() . '.' . $coverImage->extension();
-
-        $coverImageServicer = Image::make($coverImage);
-        $coverImageServicer->fit(1000, 1000);
-
-        $coverImagePath = public_path('cover-images') . '/' . $coverImageName;
-        $coverImageServicer->save($coverImagePath);
-
-        return $coverImageName;
-    }
-
-    public static function removeCoverImage(Book $book)
-    {
-        $coverImagePath = public_path('cover-images') . '/' . $book->cover_image;
-
-        if(File::exists($coverImagePath))
-        {
-            unlink($coverImagePath);
-        }
-    }
 }
