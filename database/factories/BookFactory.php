@@ -10,11 +10,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class BookFactory extends Factory
 {
     private $images_names = [
-        '1.jpg',
-        '2.jpg',
-        '3.jpg',
-        '4.jpg',
-        '5.jpg',
+        'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+        'https://render.fineartamerica.com/images/images-profile-flow/400/images-medium-large-5/awesome-solitude-bess-hamiti.jpg',
+        'https://static.photocdn.pt/images/articles/2019/05/14/What_is_fine_art_photography-1.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzbfa5WxXlvX_CuyJzuD_ARNl3VBZkN9hTagWWn15dFIUIzVbEaKsBbUCG-45MZ4uiOUo&usqp=CAU',
+        'https://www.diyphotography.net/wp-content/uploads/2020/03/89282567_1853540234947464_1166884387451568128_n.jpg',
     ];
 
     /**
