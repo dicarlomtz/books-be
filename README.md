@@ -5,7 +5,7 @@ To run this project, you will need to have docker compose installed. If not, you
 # Steps:
 
 1. First you need to run the project with sail and docker: `./vendor/bin/sail up`
-2. Then you have to run the migrations: `./vendor/bin/sail migrate`
+2. Then you have to run the migrations: `./vendor/bin/sail artisan migrate`
 3. Now you have to serve the project as an API: `./vendor/bin/sail artisan serve`
 4. To test the API using postman, import the files located in the postman folder
 5. Make sure you are selecting the correct environment
