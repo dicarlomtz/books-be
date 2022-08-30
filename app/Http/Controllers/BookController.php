@@ -46,7 +46,7 @@ class BookController extends Controller
         $book = Book::find($id);
         if(!$book)
         {
-            return response(['message' => 'Book not found'], 400);
+            return response(['message' => 'Book not found'], 404);
         }
 
         return response(['message' => 'Book found', 'book' => $book]);
@@ -79,7 +79,7 @@ class BookController extends Controller
         $book = Book::find($id);
         if(!$book)
         {
-            return response(['message' => 'Book not found'], 400);
+            return response(['message' => 'Book not found'], 404);
         }
 
         $coverImagePath = public_path('cover-images') . '/' . $book->cover_image;
@@ -99,7 +99,7 @@ class BookController extends Controller
         $book = Book::find($id);
         if(!$book)
         {
-            return response(['message' => 'Book not found'], 400);
+            return response(['message' => 'Book not found'], 404);
         }
 
         if ($request->has('cover_image_file'))
@@ -123,7 +123,7 @@ class BookController extends Controller
         $book = Book::find($id);
         if (!$book)
         {
-            return response(['message' => 'Book not found'], 400);
+            return response(['message' => 'Book not found'], 404);
         }
 
         if ($book->cover_image) Book::removeCoverImage($book);
