@@ -30,8 +30,7 @@ class StoreBookRequest extends FormRequest
             'published_year' => ['numeric', 'digits:4', 'required'],
             'available' => ['boolean', 'nullable'],
             'authors' => ['array', 'required'],
-            'co_authors' => ['array', 'nullable'],
-            'cover_image_file' => ['image', 'nullable']
+            'co_authors' => ['array', 'nullable']
         ];
     }
 }

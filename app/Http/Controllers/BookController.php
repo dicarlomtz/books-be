@@ -26,11 +26,6 @@ class BookController extends Controller
      */
     public function store(StoreBookRequest $request)
     {
-        if ($request->has('cover_image_file'))
-        {
-            $request->merge([ 'cover_image' => Book::saveCoverImage($request) ]);
-        }
-
         $book = Book::create($request->all());
         return response(['message' => 'Book created', 'book' => $book]);
     }
@@ -102,12 +97,6 @@ class BookController extends Controller
             return response(['message' => 'Book not found'], 404);
         }
 
-        if ($request->has('cover_image_file'))
-        {
-            if ($book->cover_image) Book::removeCoverImage($book);
-            $request->merge([ 'cover_image' => Book::saveCoverImage($request)] );
-        }
-
         $book->update($request->all());
         return response(['message' => 'Book updated', 'book' => $book]);
     }
@@ -126,7 +115,6 @@ class BookController extends Controller
             return response(['message' => 'Book not found'], 404);
         }
 
-        if ($book->cover_image) Book::removeCoverImage($book);
         $book->delete();
         return response(['message' => 'Book deleted', 'book' => $book]);
     }

@@ -30,8 +30,7 @@ class UpdateBookRequest extends FormRequest
             'published_year' => ['numeric', 'digits:4', 'nullable'],
             'available' => ['boolean', 'nullable'],
             'authors' => ['array', 'nullable'],
-            'co_authors' => ['array', 'nullable'],
-            'cover_image_file' => ['image', 'nullable']
+            'co_authors' => ['array', 'nullable']
         ];
     }
 }
