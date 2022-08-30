@@ -31,7 +31,7 @@ class StoreBookRequest extends FormRequest
             'available' => ['boolean', 'nullable'],
             'authors' => ['array', 'required'],
             'co_authors' => ['array', 'nullable'],
-            'cover_image' => ['url', 'nullable']
+            'cover_image' => ['url', 'image', 'nullable']
         ];
     }
 }
