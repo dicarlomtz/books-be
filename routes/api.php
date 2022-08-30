@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\BookController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(BookController::class)->group(function () {
-    Route::get('books', 'index');
+    Route::get('/books', 'index')->name('books');
 
-    Route::get('books/{id}', 'show');
-    Route::get('books/search/{search_criteria}/{parameter}', 'search');
-    Route::get('books/{id}/image', 'image');
+    Route::get('/books/{id}', 'show')->name('books.show');
+    Route::get('/books/search/{search_criteria}/{parameter}', 'search')->name('books.search');
+    Route::get('/books/{id}/image', 'image')->name('books.image');
 
-    Route::post('books', 'store');
-    Route::put('books/{id}', 'update');
-    Route::delete('/books/{id}', 'destroy');
+    Route::post('/books', 'store')->name('books.store');
+    Route::put('/books/{id}', 'update')->name('books.update');
+    Route::delete('/books/{id}', 'destroy')->name('books.destroy');
 });

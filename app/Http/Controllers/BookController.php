@@ -32,7 +32,7 @@ class BookController extends Controller
         }
 
         $book = Book::create($request->all());
-        return response(['message' => 'Book created', 'book' => $book], 200);
+        return response(['message' => 'Book created', 'book' => $book]);
     }
 
     /**
@@ -109,7 +109,7 @@ class BookController extends Controller
         }
 
         $book->update($request->all());
-        return response(['message' => 'Book updated', 'book' => $book], 200);
+        return response(['message' => 'Book updated', 'book' => $book]);
     }
 
     /**
@@ -128,6 +128,6 @@ class BookController extends Controller
 
         if ($book->cover_image) Book::removeCoverImage($book);
         $book->delete();
-        return response(['message' => 'Book deleted', 'book' => $book], 200);
+        return response(['message' => 'Book deleted', 'book' => $book]);
     }
 }

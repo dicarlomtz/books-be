@@ -24,7 +24,7 @@ class StoreBookRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['string', 'unique:books', 'max:100', 'required'],
+            'title' => ['string', 'max:100', 'required'],
             'description' => ['string', 'required'],
             'url' => ['url', 'nullable'],
             'published_year' => ['numeric', 'digits:4', 'required'],

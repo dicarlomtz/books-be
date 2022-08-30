@@ -24,7 +24,7 @@ class UpdateBookRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['string', 'unique:books', 'max:100', 'nullable'],
+            'title' => ['string', 'max:100', 'nullable'],
             'description' => ['string', 'nullable'],
             'url' => ['url', 'nullable'],
             'published_year' => ['numeric', 'digits:4', 'nullable'],
