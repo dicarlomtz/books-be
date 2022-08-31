@@ -74,7 +74,7 @@ it('searches a book by id', function () {
     $this->assertEquals($bookStored, $response->json()['book']);
 });
 
-it('searches books by a given criteria and paratemer', function () {
+it('searches books by a given criteria and parameter', function () {
     $this->withoutExceptionHandling();
 
     $response = get(route('books.search', ['search_criteria' => 'published_year', 'parameter' => '2020']));
