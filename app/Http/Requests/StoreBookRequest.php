@@ -27,11 +27,23 @@ class StoreBookRequest extends FormRequest
             'title' => ['string', 'max:100', 'required'],
             'description' => ['string', 'required'],
             'url' => ['url', 'nullable'],
-            'published_year' => ['numeric', 'digits:4', 'required'],
+            'published_year' => ['numeric', 'digits:4', 'max:' . now()->year, 'required'],
             'available' => ['boolean', 'nullable'],
             'authors' => ['array', 'required'],
             'co_authors' => ['array', 'nullable'],
             'cover_image' => ['url', 'nullable']
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'published_year.max' => 'The published year must not be greater than the current year',
         ];
     }
 }
