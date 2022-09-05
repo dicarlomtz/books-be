@@ -21,7 +21,7 @@ class BookController extends Controller
         return response(['message' => 'Book created', 'book' => $book]);
     }
 
-    public function show(Request $request, $id)
+    public function show($id)
     {
         $book = Book::find($id);
         if(!$book) return response(['message' => 'Book not found'], 404);
