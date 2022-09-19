@@ -31,22 +31,23 @@ class BookController extends Controller
 
     public function search(SearchBookRequest $request)
     {
-        $search_parameter = $request->query('search_parameter');
-        $parameter_value =$request->query('parameter_value');
+        $search_value= $request->query('search_value');
         $available = $request->query('available');
 
-        if ($search_parameter == 'authors' ||
-            $search_parameter == 'co_authors') {
-                 return Book::whereJsonContains($search_parameter, $parameter_value)
-                    ->where(function ($query) use ($available) {
-                        $query->where('available', '=', $available);
-                    })->paginate(20);
+        $search_parameter = '%' . $search_value . '%';
+
+        $query = Book::where(function ($query) use ($search_parameter, $search_value) {
+            $query->orWhereJsonContains('authors', $search_value)
+                ->orWhereJsonContains('co_authors', $search_value)
+                ->orWhere('title', 'like', $search_parameter)
+                ->orWhere('published_year', 'like', $search_parameter);
+        });
+
+        if ($available) {
+            $query->where('available', '=', $available);
         }
 
-        return Book::where($search_parameter, 'like', '%' . $parameter_value . '%')
-                    ->where(function ($query) use ($available){
-                        $query->where('available', '=', $available);
-                    })->paginate(20);
+        return $query->paginate(20);
     }
 
     public function update(UpdateBookRequest $request, $id)

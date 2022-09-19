@@ -8,8 +8,6 @@ use Illuminate\Validation\Rule;
 class SearchBookRequest extends FormRequest
 {
 
-    private $search_parameters = ['authors', 'co_authors', 'published_year', 'title'];
-
     public function authorize()
     {
         return true;
@@ -18,9 +16,8 @@ class SearchBookRequest extends FormRequest
     public function rules()
     {
         return [
-            'search_parameter' => ['required', Rule::in($this->search_parameters)],
-            'parameter_value' => ['required'],
-            'available' => ['required', 'boolean']
+            'search_value' => ['required_without:available'],
+            'available' => ['required_without:search_value', 'boolean']
         ];
     }
 }
