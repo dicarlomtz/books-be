@@ -12,7 +12,7 @@ class BookController extends Controller
 
     public function index()
     {
-        return Book::latest()->paginate(20);
+        return Book::latest()->paginate(6);
     }
 
     public function store(StoreBookRequest $request)
@@ -47,7 +47,7 @@ class BookController extends Controller
             $query->where('available', '=', $available);
         }
 
-        return $query->paginate(20);
+        return $query->paginate(6);
     }
 
     public function update(UpdateBookRequest $request, $id)
