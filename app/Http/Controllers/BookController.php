@@ -41,18 +41,18 @@ class BookController extends Controller
                 $query->orWhereJsonContains('authors', $search_value)
                     ->orWhereJsonContains('co_authors', $search_value)
                     ->orWhere('title', 'like', $search_parameter)
-                    ->orWhere('published_year', 'like', $search_parameter);
-        });
-
+                    ->orWhere('published_year', 'like', $search_parameter); });
         }
 
         if ($search_value) {
-            $query->where('available', '=', $available);
+            if ($available != null) $query->where('available', '=', $available);
         }
 
         if (!$search_value) {
-            $query = Book::where('available', '=', $available);
+            if ($available != null) $query = Book::where('available', '=', $available);
         }
+
+
 
         return $query->paginate(6);
     }
