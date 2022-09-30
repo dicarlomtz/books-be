@@ -8,8 +8,8 @@ class Kernel extends HttpKernel
 {
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
-        \App\Http\Middleware\ForceJsonResponse::class,
         \Illuminate\Http\Middleware\HandleCors::class,
+        \App\Http\Middleware\ForceJsonResponse::class,
         \App\Http\Middleware\TrustProxies::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
