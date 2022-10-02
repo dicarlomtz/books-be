@@ -14,7 +14,9 @@ class AuthController extends Controller
 {
     public function registerUser(RegisterUserRequest $request)
     {
+
         $user = User::create([
+            'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password)
@@ -23,7 +25,7 @@ class AuthController extends Controller
         return response([
             'message' => 'User created',
             'user' => $user,
-            'token' =>  $user->createToken('API TOKEN')->plainTextToken
+            'auth_token' =>  $user->createToken('auth_token')->plainTextToken
         ]);
     }
 
@@ -40,7 +42,7 @@ class AuthController extends Controller
         return response([
             'message' => 'User logged',
             'user' => $user,
-            'token' =>  $user->createToken('API TOKEN')->plainTextToken
+            'auth_token' =>  $user->createToken('auth_token')->plainTextToken
         ]);
     }
 

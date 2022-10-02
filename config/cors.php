@@ -19,16 +19,16 @@ return [
 
     'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [env('ALLOWED_HOST')],
 
-    'allowed_origins_patterns' => ['*'],
+    'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    'allowed_headers' => ['Accept', 'Origin', 'X-Requested-With', 'Content-Type', 'Authorization', 'X-CSRF-TOKEN', 'X-XSRF-TOKEN'],
 
-    'exposed_headers' => ['*'],
+    'exposed_headers' => ['Accept', 'Origin', 'X-Requested-With', 'Content-Type', 'Authorization', 'X-CSRF-TOKEN', 'X-XSRF-TOKEN'],
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];
