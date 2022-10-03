@@ -11,3 +11,9 @@ To run this project, you will need to have docker compose installed. If not, you
 5. Make sure you are selecting the correct environment
 6. If you want to create some test data at once, run the seeder: `./vendor/bin/sail artisan db:seed`
 7. To run tests: `./vendor/bin/sail artisan test --coverage --env=testing`
+
+# Frontent implementation
+
+This project can be used along [this](https://github.com/dicarlomtz/book-fe) cliend-side implementation
+
+1. Ensure your cliend-side app is running on localhost and port 5173, if not, please change ALLOWED_HOST and SANCTUM_STATEFUL_DOMAINS in .env file to the ones you are using.
