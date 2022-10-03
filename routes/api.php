@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/auth/logout', [AuthController::class, 'logoutUser']);
+
     Route::controller(BookController::class)->group(function () {
         Route::get('/books', 'index')->name('books');
 
@@ -17,6 +19,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/books/{id}', 'destroy')->name('books.destroy');
     });
 });
+
+
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('/auth/register', 'registerUser')->name('users.register');
